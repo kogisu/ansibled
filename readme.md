@@ -56,4 +56,5 @@ Under the `Networks` section, look for the `IPAddress`
     "IPAddress": "172.17.0.4",
     ...
   }
+}
 ```
