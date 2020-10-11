@@ -18,7 +18,7 @@ Nodes are running `Ubuntu 20.04`
 
 ## Architecture
 
-![Architecture diagram](./diagram.svg)
+![Architecture diagram](./diagrams/diagram.svg)
 
 ## Requirements
 
