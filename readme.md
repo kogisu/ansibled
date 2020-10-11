@@ -8,6 +8,14 @@ This project deploys a docker network with 3 ubuntu - based docker inside a dock
 
 Each of the nodes in the container are ssh-enabled which allows developers to create ansible scripts and test locally. This script creates a full dev environment for ansible in under a minute.
 
+### Controller Node
+
+Controller is running `alpine linux` and comes preloaded with `docker` and `ansible`
+
+### Worker Nodes
+
+Nodes are running `Ubuntu 20.04`
+
 ## Architecture
 
 ![Architecture diagram](./diagram.svg)
