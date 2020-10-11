@@ -38,3 +38,22 @@ To bring down the network, run
 ```
 make dind_down
 ```
+
+## IP addresses
+
+docker creates an IP for each docker container in the network. To determine the IP addresses for each of the containers running on your machine, run for each container
+
+```sh
+$ docker inspect <docker-container-hash>
+```
+
+Under the `Networks` section, look for the `IPAddress`
+
+```json
+"Networks": {
+  "bridge": {
+    ...
+    "IPAddress": "172.17.0.4",
+    ...
+  }
+```
