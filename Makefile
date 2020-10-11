@@ -3,7 +3,7 @@
 all: create_nodes
 
 docker_image:
-	docker build -t dind -f `pwd`/controller.Dockerfile .
+	docker build -t dind -f `pwd`/dockerfiles/controller.Dockerfile .
 
 dind_up: create_network
 	docker run --privileged --name dind -d \
@@ -26,7 +26,7 @@ exec:
 
 create_nodes: dind_up
 	sleep 2
-	docker exec -it dind docker build -t ansibled ansibled/
+	docker exec -it dind docker build -t ansibled ansibled/dockerfiles
 	docker exec -it dind docker run -it -d ansibled
 	docker exec -it dind docker run -it -d ansibled
 	docker exec -it dind docker run -it -d ansibled
