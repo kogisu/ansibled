@@ -33,13 +33,29 @@ Nodes are running `Ubuntu 20.04`
 
 docker
 
-## Setup
+## Usage
 
 To set up the environment, run the following:
 
 ```sh
 $ make
 # yep... that's it!!
+```
+
+Exec into the container
+
+```sh
+docker exec -it a6d sh
+```
+
+Get running ubuntu containers
+
+```sh
+/ # docker ps
+CONTAINER ID        IMAGE               COMMAND               CREATED             STATUS              PORTS               NAMES
+6173c6ea2609        ubuntu-ssh          "/usr/sbin/sshd -D"   18 seconds ago      Up 18 seconds       22/tcp              intelligent_diffie
+aa6057fd3571        ubuntu-ssh          "/usr/sbin/sshd -D"   19 seconds ago      Up 19 seconds       22/tcp              priceless_edison
+385580ebc68b        ubuntu-ssh          "/usr/sbin/sshd -D"   19 seconds ago      Up 19 seconds       22/tcp              nice_heisenberg
 ```
 
 To bring down the network, run

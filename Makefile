@@ -7,7 +7,7 @@ build_image:
 
 a6d_up: build_image create_network
 	docker run --privileged --name a6d -d \
-    --network dind-network --network-alias docker \
+    --network a6d-network --network-alias docker \
     -e DOCKER_TLS_CERTDIR=/certs \
     -v some-docker-certs-ca:/certs/ca \
     -v some-docker-certs-client:/certs/client \
@@ -26,7 +26,7 @@ exec:
 
 create_nodes: a6d_up
 	sleep 2
-	docker exec -it dind docker build -t ubuntu-ssh ansibled/dockerfiles
-	docker exec -it dind docker run -it -d ubuntu-ssh
-	docker exec -it dind docker run -it -d ubuntu-ssh
-	docker exec -it dind docker run -it -d ubuntu-ssh
+	docker exec -it a6d docker build -t ubuntu-ssh ansibled/dockerfiles
+	docker exec -it a6d docker run -it -d ubuntu-ssh
+	docker exec -it a6d docker run -it -d ubuntu-ssh
+	docker exec -it a6d docker run -it -d ubuntu-ssh
