@@ -1,12 +1,21 @@
-# Ansibled
+# a6d
 
-Ansible in docker.
+ansible in docker.
 
 ## About
 
-This project deploys a docker network with 3 ubuntu - based docker inside a docker container (dind)
+This project deploys a docker network consisting of 3 ubuntu-based docker containers inside a alpine-linux docker container (dind)
 
-Each of the nodes in the container are ssh-enabled which allows developers to create ansible scripts and test locally. This script creates a full dev environment for ansible in under a minute.
+Each of the nodes in the alpine container are ssh-enabled which allows developers to create and test their ansible scripts. This creates a full dev environment for ansible in under a minute.
+
+### Docker Version
+
+```
+Client: Docker Engine - Community
+ Version:           19.03.13
+ API version:       1.40
+ Go version:        go1.13.15
+```
 
 ### Controller Node
 
@@ -36,7 +45,7 @@ $ make
 To bring down the network, run
 
 ```
-make dind_down
+make a6d_down
 ```
 
 ## IP addresses
