@@ -1,12 +1,21 @@
-# Ansibled
+# a6d
 
-Ansible in docker.
+ansible in docker.
 
 ## About
 
-This project deploys a docker network with 3 ubuntu - based docker inside a docker container (dind)
+This project deploys a docker network consisting of 3 ubuntu-based docker containers inside a alpine-linux docker container (dind)
 
-Each of the nodes in the container are ssh-enabled which allows developers to create ansible scripts and test locally. This script creates a full dev environment for ansible in under a minute.
+Each of the nodes in the alpine container are ssh-enabled which allows developers to create and test their ansible scripts. This creates a full dev environment for ansible in under a minute.
+
+### Docker Version
+
+```
+Client: Docker Engine - Community
+ Version:           19.03.13
+ API version:       1.40
+ Go version:        go1.13.15
+```
 
 ### Controller Node
 
@@ -24,7 +33,7 @@ Nodes are running `Ubuntu 20.04`
 
 docker
 
-## Setup
+## Usage
 
 To set up the environment, run the following:
 
@@ -33,10 +42,26 @@ $ make
 # yep... that's it!!
 ```
 
+Exec into the container
+
+```sh
+docker exec -it a6d sh
+```
+
+Get running ubuntu containers
+
+```sh
+/ # docker ps
+CONTAINER ID        IMAGE               COMMAND               CREATED             STATUS              PORTS               NAMES
+6173c6ea2609        ubuntu-ssh          "/usr/sbin/sshd -D"   18 seconds ago      Up 18 seconds       22/tcp              intelligent_diffie
+aa6057fd3571        ubuntu-ssh          "/usr/sbin/sshd -D"   19 seconds ago      Up 19 seconds       22/tcp              priceless_edison
+385580ebc68b        ubuntu-ssh          "/usr/sbin/sshd -D"   19 seconds ago      Up 19 seconds       22/tcp              nice_heisenberg
+```
+
 To bring down the network, run
 
 ```
-make dind_down
+make a6d_down
 ```
 
 ## IP addresses
